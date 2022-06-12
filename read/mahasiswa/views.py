@@ -16,5 +16,5 @@ def read(request, id):
             "nama": mahasiswa.nama,
         }
         return Response(response, status=status.HTTP_200_OK)
-    except Mahasiswa.DoesNotExist():
+    except Mahasiswa.DoesNotExist:
         return Response({"status":"Bad Request", "message":"NPM tidak dapat ditemukan"}, status=status.HTTP_400_BAD_REQUEST)
