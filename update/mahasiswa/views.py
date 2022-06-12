@@ -12,7 +12,7 @@ import json
 def update(request):
     try:
         data = json.loads(request.data.get("_content"))
-        mahasiswa = mahasiswa.objects.get(npm=data['npm'])
+        mahasiswa = Mahasiswa.objects.get(npm=data['npm'])
         mahasiswa.nama = data['nama']
         response = {"status": "OK"}
         return Response(response, status=status.HTTP_200_OK)
