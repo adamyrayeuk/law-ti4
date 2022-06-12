@@ -14,6 +14,7 @@ def update(request):
         data = json.loads(request.data.get("_content"))
         mahasiswa = Mahasiswa.objects.get(npm=data['npm'])
         mahasiswa.nama = data['nama']
+        mahasiswa.save()
         response = {"status": "OK"}
         return Response(response, status=status.HTTP_200_OK)
     except Mahasiswa.DoesNotExist:
