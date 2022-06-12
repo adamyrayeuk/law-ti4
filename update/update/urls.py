@@ -20,5 +20,5 @@ from mahasiswa.views import update
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/', update)
+    path('update/', update)
 ]
