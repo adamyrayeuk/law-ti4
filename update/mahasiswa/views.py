@@ -4,9 +4,12 @@ from rest_framework.response import Response
 
 from .models import Mahasiswa
 
+import json
+
 @api_view(["POST"])
 def update(request):
-    mahasiswa = Mahasiswa.objects.create(nama=request.data.nama, npm=request.data.npm)
+    data = json.loads(request.data.get("_content"))
+    mahasiswa = Mahasiswa.objects.create(nama=data['nama'], npm=data['npm'])
     mahasiswa.save()
     response = {"status": "OK"}
     return Response(response, status=status.HTTP_200_OK)
